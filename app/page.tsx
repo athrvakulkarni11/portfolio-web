@@ -1,13 +1,19 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { SkillsGrid } from "@/components/skills-grid"
 import Image from "next/image"
 import { motion } from "framer-motion"
 
+const MotionDiv = motion.div
+
 export default function Home() {
   return (
-    <div className="space-y-8">
+    <MotionDiv 
+      className="space-y-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex flex-col-reverse md:flex-row gap-8 items-center">
         <div className="flex-1 space-y-4">
           <h1 className="text-4xl font-bold text-white">
@@ -32,7 +38,7 @@ export default function Home() {
       </div>
 
       <SkillsGrid />
-    </div>
+    </MotionDiv>
   )
 }
 

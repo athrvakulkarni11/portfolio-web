@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarnings>
+    <html lang="en" suppressHydrationWarning>
       <body className={cn(
         "min-h-screen bg-[#444343] font-sans antialiased",
         spaceGrotesk.variable

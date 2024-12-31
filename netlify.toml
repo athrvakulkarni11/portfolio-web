@@ -4,6 +4,8 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  [plugins.inputs]
+    skipBuildCache = true
 
 [build.environment]
   NEXT_USE_NETLIFY_EDGE = "true"

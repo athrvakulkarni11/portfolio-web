@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
     scrollRestoration: true,
   },
   output: 'standalone',
+  optimizeFonts: true,
+  fonts: {
+    domains: ['fonts.gstatic.com'],
+  },
 };
 
 export default nextConfig;
