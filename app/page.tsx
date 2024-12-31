@@ -7,12 +7,12 @@ import { motion } from "framer-motion"
 import { ExternalLink } from 'lucide-react'
 import Link from "next/link"
 
-const MotionCard = motion(Card)
+const MotionCard = motion.create(Card)
 
 const skills = [
-  "Python", "Java", "C++", "JavaScript", "React", "Next.js",
-  "TensorFlow", "PyTorch", "Computer Vision", "ROS2",
-  "Gazebo", "Arduino", "HTML/CSS", "Node.js"
+  "Python", "GenAI","LLMs","NLP",
+  "TensorFlow", "PyTorch",  "JavaScript", "React", "Next.js", "Computer Vision", "ROS2",
+  "HTML/CSS", "Node.js"
 ]
 
 const experience = [
@@ -37,7 +37,7 @@ const projects = [
       "Developed decision-making algorithms for silo tracking based on ball detection",
     ],
     technologies: ["ROS2", "OpenCV", "YOLOv8", "YOLOv5"],
-    image: "/placeholder.svg",
+    // image: "/placeholder.svg",
   },
   {
     title: "ERGO - AI-Powered Learning Platform",
@@ -48,7 +48,7 @@ const projects = [
       "A RAG system for Getting Textbook Accurate answers",
     ],
     technologies: ["Groq", "OLLAMA", "Web Scraping", "LLAMA3-8b", "Mistral", "Nomic-Embed-Text"],
-    image: "/placeholder.svg",
+    // image: "/ergo.jpg",
   }
 ]
 
@@ -63,11 +63,11 @@ export default function Home() {
         transition={{ duration: 0.5 }}
       >
         <div className="flex-1 space-y-3">
-          <h1 className="text-3xl md:text-4xl font-bold text-white font-jetbrains">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground font-jetbrains">
             Hi, I&apos;m Athrva Kulkarni
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 font-jetbrains">
-            A Computer Science Engineer specializing in AI and Robotics
+          <p className="text-lg md:text-xl text-muted-foreground font-jetbrains">
+            A Computer Science Engineer specializing in AI 
           </p>
           <p className="text-sm md:text-base text-gray-400">
             I&apos;m passionate about building intelligent systems that can make a difference.
@@ -77,7 +77,7 @@ export default function Home() {
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="bg-[#444444] text-gray-300 px-2 py-0.5 rounded-full text-xs md:text-sm font-jetbrains"
+                className="bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full text-xs md:text-sm font-jetbrains"
               >
                 {skill}
               </span>
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
         <div className="w-32 h-32 md:w-48 md:h-48 relative flex-shrink-0">
           <Image
-            src="/profile.jpg"
+            src="/athrvapf.jpeg"
             alt="Athrva Kulkarni"
             fill
             className="rounded-full object-cover"
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* Experience Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-white font-jetbrains">Experience</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground font-jetbrains">Experience</h2>
         <div className="max-h-[400px] overflow-y-auto pr-2 space-y-4">
           {experience.map((exp, index) => (
             <MotionCard
@@ -104,14 +104,14 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#333333] border-[#555555]"
+              className="bg-card text-card-foreground border-border hover:shadow-lg transition-all"
             >
               <CardHeader className="p-4">
-                <CardTitle className="text-xl text-white font-jetbrains">{exp.title}</CardTitle>
-                <p className="text-sm text-gray-300">{exp.company} • {exp.period}</p>
+                <CardTitle className="text-xl text-foreground font-jetbrains">{exp.title}</CardTitle>
+                <p className="text-sm text-muted-foreground">{exp.company} • {exp.period}</p>
               </CardHeader>
               <CardContent className="p-4 pt-0">
-                <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
+                <ul className="list-disc list-inside space-y-1 text-foreground/80 text-sm">
                   {exp.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -126,47 +126,36 @@ export default function Home() {
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-bold text-white font-jetbrains">Projects</h2>
         <div className="max-h-[600px] overflow-y-auto pr-2 space-y-4">
-          {projects.map((project, index) => (
-            <MotionCard
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#333333] border-[#555555]"
-            >
-              <div className="md:flex">
-                <div className="md:w-1/3 relative h-[150px] md:h-[200px]">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="md:w-2/3">
-                  <CardHeader className="p-4">
-                    <CardTitle className="text-xl text-white font-jetbrains">
-                      {project.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4 pt-0 space-y-3">
-                    <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
-                      {project.description.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </div>
-              </div>
-            </MotionCard>
-          ))}
+          <div className="grid gap-6">
+            {projects.map((project, index) => (
+              <MotionCard
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-card text-card-foreground border-border transition-all"
+              >
+                <CardHeader>
+                  <CardTitle className="text-2xl">{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                    {project.description.map((desc, i) => (
+                      <li key={i}>{desc}</li>
+                    ))}
+                  </ul>
+                  
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.technologies.map((tech) => (
+                      <Badge key={tech} variant="secondary">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </MotionCard>
+            ))}
+          </div>
         </div>
       </section>
     </div>

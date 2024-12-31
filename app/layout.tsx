@@ -13,6 +13,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Athrva Kulkarni - AI Engineer & Developer",
   description: "Portfolio of Athrva Kulkarni - Computer Science Engineer specializing in AI",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -22,6 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="light">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={cn(
         "min-h-screen bg-gray-50 dark:bg-[#444343] font-mono antialiased overflow-x-hidden",
         jetbrainsMono.variable

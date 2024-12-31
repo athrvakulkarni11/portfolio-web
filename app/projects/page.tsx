@@ -2,8 +2,9 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Badge from "@/components/ui/badge";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { Github } from 'lucide-react'
+import Link from 'next/link'
 
 const projects = [
   {
@@ -14,7 +15,7 @@ const projects = [
       "Developed decision-making algorithms for silo tracking based on ball detection",
     ],
     technologies: ["ROS2", "OpenCV", "YOLOv8", "YOLOv5"],
-    image: "/placeholder.svg",
+    githubUrl: "https://github.com/athrvakulkarni11/robocon-24",
   },
   {
     title: "ERGO - AI-Powered Learning Platform",
@@ -25,7 +26,7 @@ const projects = [
       "A RAG system for Getting Textbook Accurate answers",
     ],
     technologies: ["Groq", "OLLAMA", "Web Scraping", "LLAMA3-8b", "Mistral", "Nomic-Embed-Text"],
-    image: "/placeholder.svg",
+    githubUrl: "https://github.com/athrvakulkarni11/ERGO",
   },
   {
     title: "Image/Video Caption Generation",
@@ -38,56 +39,59 @@ const projects = [
   },
 ];
 
-const MotionDiv = motion.div;
+const MotionCard = motion(Card);
 
 export default function Projects() {
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold text-white">Projects</h1>
+      <h1 className="text-4xl font-bold text-foreground">Projects</h1>
       
       <div className="grid gap-6">
         {projects.map((project, index) => (
-          <MotionDiv
+          <MotionCard
             key={project.title}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.02 }}
+            className="bg-card text-card-foreground border-border transition-all"
           >
-            <Card className="bg-[#333333] border-[#555555] overflow-hidden">
-              <div className="md:flex">
-                <div className="md:w-1/3 relative h-[200px]">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="md:w-2/3">
-                  <CardHeader>
-                    <CardTitle className="text-2xl text-white">
-                      {project.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <ul className="list-disc list-inside space-y-2 text-gray-300">
-                      {project.description.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </div>
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <CardTitle className="text-2xl font-bold text-foreground">
+                  {project.title}
+                </CardTitle>
+                {project.githubUrl && (
+                  <Link 
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Github className="w-6 h-6" />
+                  </Link>
+                )}
               </div>
-            </Card>
-          </MotionDiv>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <ul className="list-disc list-inside space-y-2 text-foreground/80">
+                {project.description.map((desc, i) => (
+                  <li key={i}>{desc}</li>
+                ))}
+              </ul>
+              
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.technologies.map((tech) => (
+                  <Badge 
+                    key={tech} 
+                    variant="secondary"
+                    className="bg-secondary/50 text-foreground border border-border/50"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </MotionCard>
         ))}
       </div>
     </div>
