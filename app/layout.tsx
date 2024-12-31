@@ -1,18 +1,18 @@
 import type { Metadata } from "next"
-import { Space_Grotesk } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation"
 
-const spaceGrotesk = Space_Grotesk({ 
+const jetbrainsMono = JetBrains_Mono({ 
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-jetbrains",
 })
 
 export const metadata: Metadata = {
   title: "Athrva Kulkarni - AI Engineer & Developer",
-  description: "Portfolio of Athrva Kulkarni - Computer Science Engineer specializing in AI ",
+  description: "Portfolio of Athrva Kulkarni - Computer Science Engineer specializing in AI",
 }
 
 export default function RootLayout({
@@ -21,10 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="light">
       <body className={cn(
-        "min-h-screen bg-[#444343] font-sans antialiased",
-        spaceGrotesk.variable
+        "min-h-screen bg-gray-50 dark:bg-[#444343] font-mono antialiased overflow-x-hidden",
+        jetbrainsMono.variable
       )}>
         <ThemeProvider
           attribute="class"
@@ -32,12 +32,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex">
-            <Navigation />
-            <main className="flex-1 p-8">
-              {children}
-            </main>
-          </div>
+          <Navigation />
+          <main className="p-4 md:p-8">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
