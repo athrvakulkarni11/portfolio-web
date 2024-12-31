@@ -6,18 +6,18 @@ const achievements = [
     icon: Trophy,
     title: "Reached Final Stage at DD ROBOCON 2024",
   },
-  {
-    icon: Award,
-    title: "Published Research Paper at ICCUBEA 2024",
-  },
-  {
-    icon: Globe,
-    title: "Developed Multiple Live Websites For Industry Related Project",
-  },
-  {
-    icon: Certificate,
-    title: "Udemy Machine Learning A-Z™: AI, Python & R + ChatGPT Bonus [2023]",
-  },
+  // {
+  //   icon: Award,
+  //   title: "Published Research Paper at ICCUBEA 2024",
+  // },
+  // {
+  //   icon: Globe,
+  //   title: "Developed Multiple Live Websites For Industry Related Project",
+  // },
+  // {
+  //   icon: Certificate,
+  //   title: "Udemy Machine Learning A-Z™: AI, Python & R + ChatGPT Bonus [2023]",
+  // },
 ]
 
 export default function Achievements() {

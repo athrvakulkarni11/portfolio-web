@@ -11,11 +11,11 @@ const routes = [
     icon: Home,
     href: "/",
   },
-  {
-    label: "Education",
-    icon: GraduationCap,
-    href: "/education",
-  },
+  // {
+  //   label: "Education",
+  //   icon: GraduationCap,
+  //   href: "/education",
+  // },
   {
     label: "Experience",
     icon: Briefcase,
@@ -26,11 +26,11 @@ const routes = [
     icon: Code2,
     href: "/projects",
   },
-  {
-    label: "Achievements",
-    icon: Trophy,
-    href: "/achievements",
-  },
+  // {
+  //   label: "Achievements",
+  //   icon: Trophy,
+  //   href: "/achievements",
+  // },
   {
     label: "Blog",
     icon: BookOpen,
@@ -57,12 +57,12 @@ const socialLinks = [
   {
     label: "GitHub",
     icon: Github,
-    href: "https://github.com/athrvakulkarni",
+    href: "https://github.com/athrvakulkarni11",
   },
   {
     label: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com/in/athrvakulkarni11",
+    href: "https://www.linkedin.com/in/athrva-kulkarni-264a8a25b/",
   },
   {
     label: "Email",

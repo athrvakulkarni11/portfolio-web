@@ -20,11 +20,11 @@ export default function Home() {
             Hi, I&apos;m Athrva Kulkarni
           </h1>
           <p className="text-xl text-gray-300">
-            A Computer Science Engineer specializing in AI and Robotics
+            A Computer Science Engineer specializing in AI 
           </p>
           <p className="text-gray-400">
             I&apos;m passionate about building intelligent systems that can make a difference.
-            Currently working on autonomous robotics and AI applications.
+            Currently working on AI Agents , LLMs , Computer Vision and some development projects.
           </p>
         </div>
         <div className="w-48 h-48 relative">
