@@ -7,9 +7,11 @@ export default function Education() {
       
       <Card className="bg-[#333333] border-[#555555]">
         <CardHeader>
-          <CardTitle className="text-2xl text-white">Bachelor of Technology in Computer Science Engineering (Artificial Intelligence)</CardTitle>
+          <CardTitle className="text-2xl text-white">
+            Bachelor of Technology in Computer Science Engineering (Artificial Intelligence)
+          </CardTitle>
           <p className="text-gray-300">
-            BRACT's Vishwakarma Institute Of Information Technology, Pune, Maharashtra
+            BRACT&apos;s Vishwakarma Institute Of Information Technology, Pune, Maharashtra
           </p>
         </CardHeader>
         <CardContent className="space-y-2">
